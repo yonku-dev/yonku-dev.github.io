@@ -12,7 +12,7 @@
 body {
   background-color: var(--backround-color);
   background-image: url("img-noise.png");
-  background-position: fixed;
+  background-attachment: fixed;
   color: var(--yellow-color); 
   font-family: 'Roboto Mono', monospace, sans-serif;
   display: flex;
