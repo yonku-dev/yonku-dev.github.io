@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap');
+
+:root {
+  --yellow-color: #E3D99D;
+  --backround-color: #14110b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--backround-color);
+  background-image: url("img-noise.png");
+  background-position: fixed;
+  color: var(--yellow-color); 
+  font-family: 'Roboto Mono', monospace, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+p {
+  font-weight: lighter;
+}
+
+.game-container {
+  padding: 20px 30px;
+  position: relative;
+  margin: auto;
+  height: 350px;
+  width: 450px;
+}
+
+.figure-container {
+  fill: transparent;
+  stroke: var(--yellow-color);
+  stroke-width: 4px;
+  stroke-linecap: round;
+}
+
+.figure-part {
+  display: none;
+}
+
+.wrong-letters-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.wrong-letters-container p {
+  margin: 0 0 5px;
+}
+
+.wrong-letters-container span {
+  font-size: 24px;
+}
+
+.word {
+  display: flex;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.letter {
+  border-bottom: 3px solid var(--yellow-color);
+  display: inline-flex;
+  font-size: 30px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 3px;
+  height: 50px;
+  width: 20px;
+}
+
+.popup-container {
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup {
+  background: #E3D99D;
+  color: var(--backround-color);
+  border-radius: 5px;
+  box-shadow: 0 15px 10px 3px rgba(0,0,0,0.2);
+  padding: 20px;
+  text-align: center;
+}
+
+.popup button {
+  cursor: pointer;
+  background-color: var(--backround-color);
+  color: var(--yellow-color);
+  border: 0;
+  border-radius: 4px;
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: 16px;
+}
+
+.popup button:active {
+  transform: scale(0.98);
+}
+
+.popup button:focus {
+  outline: 0;
+}
+
+.notification-container {
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 10px 10px 0 0;
+  padding: 15px 20px;
+  position: absolute;
+  bottom: -50px;
+  transition: transform 0.3 ease-in-out;
+}
+
+.notification-container p {
+  margin: 0;
+}
+
+.notification-container.show {
+  transform: translateY(-50px);
+}
+
+.blink {
+  animation-name: animation_blink;
+  animation-timing-function: ease;
+  animation-duration: .7s; 
+  animation-iteration-count: infinite;            
+}
+
+@keyframes animation_blink {
+  0% { opacity: 0; }
+  100% { opacity: 1; }   
+}
