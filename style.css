@@ -16,10 +16,10 @@ body {
   color: var(--yellow-color); 
   font-family: 'Roboto Mono', monospace, sans-serif;
   display: flex;
+  height: 100vh;
   flex-direction: column;
   align-items: center;
-  height: 80vh;
-  margin: 0;
+  justify-items: center;
   overflow: hidden;
 }
 
@@ -29,12 +29,33 @@ h1 {
 
 p {
   font-weight: lighter;
+  font-size: 20px;
+}
+
+.letter-table {
+  padding-top: 30px;
+  font-size: 30px;
+  border-spacing: 10px;
+}
+.letter-table td {
+  padding: 5px 10px;
+  border-color: var(--yellow-color);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10px;
+  background-color: rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: .2s ease-in-out;
+}
+
+.letter-table td:hover {
+  background-color: rgba(227, 217, 157, 0.1);
 }
 
 .game-container {
-  padding: 20px 30px;
+  padding: 20px 5px;
   position: relative;
-  margin: auto;
+  margin: 0;
   height: 350px;
   width: 450px;
 }
@@ -154,3 +175,21 @@ p {
   0% { opacity: 0; }
   100% { opacity: 1; }   
 }
+
+@media (max-width:520px)  {
+  p {
+    font-weight: lighter;
+    font-size: 15px;
+  }
+  .letter-table {
+  padding-top: 20px;
+  font-size: 20px;
+  border-spacing: 5px;
+}
+.game-container {
+  padding: 20px 5px;
+  position: relative;
+  margin: 0;
+  height: 350px;
+  width: 350px;
+}} 
