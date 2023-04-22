@@ -7,7 +7,7 @@ const finalMessage = document.getElementById('final-message');
 
 const figureParts = document.querySelectorAll('.figure-part');
 
-const words = ['javacript', 'programming', 'design', 'learning', 'application', 'udemy', 'developer', 'coding', 'computer', 'website', 'hangman', 'html', 'creativ'];
+const words = ['javascript', 'programming', 'design', 'learning', 'application', 'udemy', 'developer', 'coding', 'computer', 'website', 'hangman', 'html', 'creative', 'css', 'react', 'photoshop'];
 
 let selectedWord = words[Math.floor(Math.random() * words.length)];
 
@@ -76,6 +76,31 @@ window.addEventListener('keydown', e => {
   // console.log(e.keyCode);
   if(e.code >= 'KeyA' && e.code <= 'KeyZ') {
     const letter = e.key;
+    
+    if(selectedWord.includes(letter)) {
+      if(!correctLetters.includes(letter)) {
+        correctLetters.push(letter);
+
+        displayWord();
+      } else {
+        showNotification();
+      }
+    } else {
+      if(!wrongLetters.includes(letter)) {
+        wrongLetters.push(letter);
+
+        updateWrongLettersEL();
+      } else {
+        showNotification();
+      }
+    }
+
+  }
+});
+
+document.querySelector('.letter-table').addEventListener('click', e => {
+  {
+    let letter = e.target.closest('td').innerText;;
     
     if(selectedWord.includes(letter)) {
       if(!correctLetters.includes(letter)) {
