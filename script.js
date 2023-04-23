@@ -98,9 +98,10 @@ window.addEventListener('keydown', e => {
   }
 });
 
-document.querySelector('.letter-table').addEventListener('click', e => {
+// Onscreen letters
+document.querySelector('.letter-table').addEventListener('click', e => 
   {
-    let letter = e.target.closest('td').innerText;;
+    let letter = e.target.closest('td').innerText;
     
     if(selectedWord.includes(letter)) {
       if(!correctLetters.includes(letter)) {
@@ -121,7 +122,7 @@ document.querySelector('.letter-table').addEventListener('click', e => {
     }
 
   }
-});
+  );
 
 // Restart game and play again
 playAgainBtn.addEventListener('click', () => {
