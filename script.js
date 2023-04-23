@@ -105,7 +105,7 @@ document.querySelector('.letter-table').addEventListener('click', e =>
   {
     let letter = e.target.closest('td').innerText;
     
-    checkLetterInput(letter)
+    checkLetterInput(letter);
   }
 );
 
