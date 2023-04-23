@@ -103,7 +103,7 @@ window.addEventListener('keydown', e => {
 // Onscreen letter press
 document.querySelector('.letter-table').addEventListener('click', e => 
   {
-    let letter = e.target.closest('td').innerText;
+    const letter = e.target.closest('td').innerText;
     
     checkLetterInput(letter);
   }
