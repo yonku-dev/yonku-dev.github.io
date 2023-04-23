@@ -71,58 +71,43 @@ function showNotification() {
   }, 2000);
 }
 
+// Check letter input
+function checkLetterInput(letter) {          
+  if(selectedWord.includes(letter)) {
+    if(!correctLetters.includes(letter)) {
+    correctLetters.push(letter);
+
+    displayWord();
+  }   else {
+    showNotification();
+  }
+  }   else {
+  if(!wrongLetters.includes(letter)) {
+    wrongLetters.push(letter);
+
+    updateWrongLettersEL();
+  }   else {
+    showNotification();
+  }
+}}
+
 // Keydown letter press
 window.addEventListener('keydown', e => {
   // console.log(e.keyCode);
   if(e.code >= 'KeyA' && e.code <= 'KeyZ') {
     const letter = e.key;
     
-    if(selectedWord.includes(letter)) {
-      if(!correctLetters.includes(letter)) {
-        correctLetters.push(letter);
+    checkLetterInput(letter);
+}});
 
-        displayWord();
-      } else {
-        showNotification();
-      }
-    } else {
-      if(!wrongLetters.includes(letter)) {
-        wrongLetters.push(letter);
-
-        updateWrongLettersEL();
-      } else {
-        showNotification();
-      }
-    }
-
-  }
-});
-
-// Onscreen letters
+// Onscreen letter press
 document.querySelector('.letter-table').addEventListener('click', e => 
   {
     let letter = e.target.closest('td').innerText;
     
-    if(selectedWord.includes(letter)) {
-      if(!correctLetters.includes(letter)) {
-        correctLetters.push(letter);
-
-        displayWord();
-      } else {
-        showNotification();
-      }
-    } else {
-      if(!wrongLetters.includes(letter)) {
-        wrongLetters.push(letter);
-
-        updateWrongLettersEL();
-      } else {
-        showNotification();
-      }
-    }
-
+    checkLetterInput(letter)
   }
-  );
+);
 
 // Restart game and play again
 playAgainBtn.addEventListener('click', () => {
